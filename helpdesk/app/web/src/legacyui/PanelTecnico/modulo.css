@@ -1,0 +1,679 @@
+/*
+ * Archivo: modulo.css
+ * Descripción: Estilos para la barra lateral y el diseño principal del panel de técnico,
+ * así como los estilos para los componentes Dashboard y Tickets.
+ */
+
+/* Estilos generales para el layout principal */
+.modulos-layout {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Estilos de la barra lateral (Sidebar) */
+.sidebar-container {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #e0e0e0;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-icon {
+  font-size: 48px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.help-desk-text {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+/* Estilos del menú de navegación */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nav-item {
+  background-color: transparent;
+  border: none;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 1em;
+  color: #333;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.nav-item:hover {
+  background-color: #e9ecef;
+}
+
+.nav-item.active {
+  background-color: #e9ecef;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.nav-item:focus {
+  outline: none;
+  background-color: #e9ecef;
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* ---------------------------------- Estilos para Dashboard ------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+/* Estilos generales del contenedor del dashboard */
+.dashboard-container {
+    padding: 24px;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Encabezado del dashboard */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dashboard-header p {
+    font-size: 14px;
+    color: #666;
+    margin: 4px 0 0;
+}
+
+.header-time {
+    font-size: 14px;
+    color: #666;
+}
+
+.header-time i {
+    margin-right: 8px;
+}
+
+/* Sección de tarjetas de resumen */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+.card-value {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 8px 0 0;
+}
+
+/* Colores de las tarjetas */
+.total-tickets { border-color: #556BFF; }
+.open-tickets { border-color: #FFC107; }
+.in-process-tickets { border-color: #FF9800; }
+.completed-tickets { border-color: #4CAF50; }
+
+.card-icon {
+    font-size: 24px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.total-tickets .card-icon { background-color: #556BFF; }
+.open-tickets .card-icon { background-color: #FFC107; }
+.in-process-tickets .card-icon { background-color: #FF9800; }
+.completed-tickets .card-icon { background-color: #4CAF50; }
+
+/* Grid principal para tickets y notificaciones */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.tickets-recentes, .notificaciones-panel {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tickets-recentes h3, .notificaciones-panel h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Estilos de los tickets */
+.ticket-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ticket-header h4 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.media-tag {
+    background-color: #ffeb3b;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.ticket-description {
+    font-size: 14px;
+    color: #555;
+    margin: 0 0 12px;
+}
+
+.ticket-tags span {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.status-tag.terminado { background-color: #e8f5e9; color: #43a047; }
+.status-tag.abierto { background-color: #ffebee; color: #d32f2f; }
+.type-tag.software { background-color: #e3f2fd; color: #1565c0; }
+
+.ticket-info p {
+    font-size: 13px;
+    color: #666;
+    margin: 8px 0 0;
+}
+
+.ticket-info i {
+    margin-right: 8px;
+    color: #aaa;
+}
+
+/* Estilos de notificaciones */
+.notificaciones-panel {
+    border-radius: 8px;
+}
+
+.notificaciones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.notification-count {
+    background-color: #f44336;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.notificacion-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #eee;
+}
+
+.notificacion-item i {
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+.notificacion-item.error { border-color: #ffcdd2; background-color: #fff; color: #d32f2f; }
+.notificacion-item.success { border-color: #e8f5e9; background-color: #fff; color: #43a047; }
+.notificacion-item.info { border-color: #bbdefb; background-color: #fff; color: #1976d2; }
+
+.notificacion-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.notificacion-item small {
+    font-size: 12px;
+    color: #888;
+}
+
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* ---------------------------------- Estilos para Ticket ------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+.tickets-module-container {
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.tickets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.tickets-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.filter-btn:hover {
+    background-color: #f4f4f4;
+}
+
+/* Estilos de la lista de tickets */
+.tickets-list {
+    display: grid;
+    gap: 24px;
+}
+
+.ticket-item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ticket-item-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.ticket-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.status-tag {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Colores de las etiquetas de estado */
+.status-tag.abierto { background-color: #ffebee; color: #d32f2f; }
+.status-tag.en-proceso { background-color: #fffde7; color: #ff6f00; }
+.status-tag.terminado { background-color: #e8f5e9; color: #43a047; }
+.status-tag.cerrado { background-color: #e0e0e0; color: #757575; }
+
+/* Colores de las etiquetas de categoría */
+.type-tag.software { background-color: #e3f2fd; color: #1565c0; }
+.type-tag.hardware { background-color: #f3e5f5; color: #6a1b9a; }
+
+.ticket-description {
+    font-size: 14px;
+    color: #555;
+    margin: 0 0 16px;
+}
+
+.ticket-meta p {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 4px;
+}
+
+.ticket-meta i {
+    margin-right: 8px;
+    color: #aaa;
+}
+
+.no-tickets-message {
+    text-align: center;
+    color: #888;
+    margin-top: 50px;
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* ---------------------------------- Estilos para Ticket ------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+.detalle-ticket-container {
+    padding: 24px;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Encabezado */
+.ticket-header-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+}
+
+.ticket-info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ticket-title-group {
+    display: flex;
+    align-items: center;
+}
+
+.ticket-icon {
+    font-size: 24px;
+    color: #007bff;
+    margin-right: 12px;
+}
+
+.ticket-header-section h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ticket-meta-tags span {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+
+/* Colores de tags */
+.status-tag.en-proceso { background-color: #ffc107; color: #fff; }
+.priority-tag.alta { background-color: #dc3545; color: #fff; }
+.category-tag.hardware { background-color: #6c757d; color: #fff; }
+
+.ticket-meta-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Layout principal de dos paneles */
+.ticket-main-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.ticket-details-panel, .ticket-actions-panel {
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-details-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.ticket-details-summary p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.ticket-details-summary p i {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+/* Descripción del problema */
+.ticket-description-box h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.ticket-description-box p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Pestañas de historial */
+.ticket-tabs {
+    margin-top: 24px;
+}
+
+.tab-buttons .tab-btn {
+    border: none;
+    background-color: transparent;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-buttons .tab-btn.active {
+    border-bottom-color: #007bff;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.tab-content {
+    padding-top: 20px;
+}
+
+.history-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.history-item {
+    border-left: 2px solid #ddd;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.history-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 14px;
+    color: #888;
+}
+
+.history-by {
+    font-weight: bold;
+    color: #333;
+}
+
+.history-action {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.history-message {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0 0;
+}
+
+/* Panel de acciones */
+.card-actions, .card-add-comment, .card-contact-info {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card-actions h3, .card-add-comment h3, .card-contact-info h3 {
+    font-size: 18px;
+    margin: 0 0 15px;
+}
+
+.status-change-select select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.pause-btn, .resume-btn, .complete-btn, .add-comment-btn, .contact-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.pause-btn, .resume-btn {
+    width: 48%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #666;
+}
+
+.pause-btn:hover, .resume-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.complete-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.add-comment-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.contact-btn {
+    background-color: #f8f9fa;
+    color: #007bff;
+    border: 1px solid #007bff;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}

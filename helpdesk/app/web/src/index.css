@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+:root { color-scheme: light; }
+
+/* En v4, @apply dentro de una capa */
+@layer base {
+  body { @apply bg-gray-50 text-gray-900; }
+}
