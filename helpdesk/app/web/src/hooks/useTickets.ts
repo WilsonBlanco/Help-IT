@@ -1,6 +1,7 @@
 import { useQuery, keepPreviousData } from '@tanstack/react-query'
 import { apiGet } from '../lib/api'
 import type { TicketsResponse } from '../types/tickets'
+import type { TicketDetailResponse, TicketDetail } from '../types/tickets'
 
 export type TicketsParams = {
   page?: number;
@@ -42,3 +43,16 @@ export function useTickets(params: TicketsParams) {
   })
 }
 
+export function useTicket(id: number) {
+  return useQuery<TicketDetail>({
+    queryKey: ['ticket', id],
+    queryFn: async () => {
+      const data = await apiGet<TicketDetailResponse>(`/tickets/${id}`)
+      return data.ticket
+    },
+    enabled: Number.isFinite(id) && id > 0,
+    staleTime: 0,
+    refetchOnMount: 'always',
+    refetchOnWindowFocus: false,
+  })
+}

@@ -18,36 +18,36 @@ export default function AppLayout() {
   }
 
   return (
-    <div className="min-h-screen grid grid-cols-[240px_1fr]">
+    <div className="min-h-screen grid grid-cols-[220px_1fr]">
       {/* Sidebar */}
-      <aside className="bg-white border-r p-4">
-        <div className="text-xl font-semibold mb-6">HelpDesk</div>
+      <aside className="hit-sb p-4 flex flex-col">
+        <div className="text-2xl font-bold text-[var(--hit-navy)] mb-4">HelpDesk</div>
 
-        <nav className="space-y-1">
-          <NavItem to="/tickets" label="Tickets" />
+        <ul className="hit-sb-list flex-1">
+          <li><NavItem to="/tickets" label="Tickets" icon="tickets.gif" /></li>
 
-          {/* Solo TECH/ADMIN */}
-
+          {/* Visible para TECH o ADMIN */}
           {(me?.role === 'TECH' || me?.role === 'ADMIN') && (
-          <NavItem to="/dashboard" label="Dashboard" />
+            <>
+              <li><NavItem to="/dashboard" label="Dashboard" icon="dashboard.png" /></li>
+              <li><NavItem to="/reports" label="Informes" icon="reports.png" /></li>
+            </>
           )}
 
-          {(me?.role === 'TECH' || me?.role === 'ADMIN') && (<>
-          <NavItem to="/reports" label="Informes" /></>)}
+          <li><NavItem to="/tickets/history" label="Historial de Tickets" icon="history.png" /></li>
 
-          {/* Historial visible para todos */}
-          <NavItem to="/tickets/history" label="Historial de Tickets" />
+          {/* Solo ADMIN */}
+          {me?.role === 'ADMIN' && (
+            <li><NavItem to="/admin" label="Admin" icon="admin.png" /></li>
+          )}
+        </ul>
 
-          {/* Solo ADMIN verá “Admin” */}
-          {me?.role === 'ADMIN' && <NavItem to="/admin" label="Admin" />}
-        </nav>
-
-        <div className="mt-8 border-t pt-4 text-sm text-gray-600">
-          <div className="font-medium">{me?.email}</div>
-          <div className="opacity-70">Rol: {me?.role}</div>
+        <div className="hit-sb-user">
+          <div className="font-semibold">{me?.email}</div>
+          <div className="opacity-80">Rol: {me?.role}</div>
           <button
             onClick={handleLogout}
-            className="mt-3 w-full rounded-lg bg-gray-100 hover:bg-gray-200 py-2"
+            className="mt-3 w-full rounded-xl py-2 bg-white text-[var(--hit-royal)] font-semibold shadow hover:shadow-md"
           >
             Salir
           </button>
@@ -55,25 +55,25 @@ export default function AppLayout() {
       </aside>
 
       {/* Contenido */}
-      <main className="p-8">
+      <main className="bg-[#f5f9ff] p-8">
         <Outlet />
       </main>
     </div>
   )
 }
 
-function NavItem({ to, label }: { to: string; label: string }) {
+function NavItem({ to, label, icon }: { to: string; label: string; icon?: string }) {
   return (
     <NavLink
       to={to}
       className={({ isActive }) =>
-        [
-          'block px-3 py-2 rounded-lg',
-          isActive ? 'bg-blue-50 text-blue-700 font-medium' : 'hover:bg-gray-100',
-        ].join(' ')
+        ['hit-sb-link', isActive ? 'hit-sb-link-active' : ''].join(' ')
       }
     >
-      {label}
+      {icon && <img src={`/icons/${icon}`} alt="" />}
+      <span>{label}</span>
     </NavLink>
   )
 }
+
+

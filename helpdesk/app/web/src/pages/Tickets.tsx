@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useTickets } from '../hooks/useTickets'
 import type { Ticket } from '../types/tickets'
+import { Link } from 'react-router-dom'
 
 export default function TicketsPage() {
   // Estado de consulta (por ahora: página, pageSize y estadoFinal)
@@ -47,6 +48,18 @@ export default function TicketsPage() {
       {/* Estados de carga/error */}
       {isLoading && <div className="p-6">Cargando…</div>}
       {isError && <div className="p-6 text-red-600">Error: {(error as any)?.message || 'Falló la carga'}</div>}
+
+      <div className="mb-4 flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">Tickets</h1>
+        <Link
+        to="/tickets/new"           // cuando tengamos el formulario real, apuntará aquí
+        className="hit-btn-primary"
+      >
+      <img src="/icons/tickets.gif" alt="" width={18} height={18} />
+        Nuevo Ticket
+        </Link>
+      </div>
+
 
       {/* Lista */}
       {data && (

@@ -13,6 +13,8 @@ import TicketHistoryPage from './pages/TicketHistory'   // ← nuevo
 import ReportsPage from './pages/Reports'               // ← nuevo
 import TicketDetailPage from './pages/TicketDetail'     // ← nuevo
 
+
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -44,6 +46,18 @@ export default function App() {
             </Route>
           </Route>
         </Route>
+
+            <Route element={<ProtectedRoute />}>
+            <Route element={<AppLayout />}>
+            <Route index element={<Navigate to="/tickets" replace />} />
+            <Route path="/tickets" element={<TicketsPage />} />
+            <Route path="/tickets/:id" element={<TicketDetailPage />} />  {/* ⬅️ nueva */}
+            <Route path="/dashboard" element={<DashboardLegacy />} />
+            {/* ... resto de rutas ... */}
+          </Route>
+        </Route>
+
+        
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/tickets" replace />} />

@@ -3,6 +3,184 @@
 :root { color-scheme: light; }
 
 /* En v4, @apply dentro de una capa */
-@layer base {
+/*@layer base {
   body { @apply bg-gray-50 text-gray-900; }
+}*/
+
+/* Base sin @apply: evita el aviso del editor */
+body{
+  /* base azul suave del layout actual: */
+  background-color: #f5f9ff;
+  color: #0f172a;
 }
+
+/* === HIT: paleta y estilos del sidebar / botones === */
+:root{
+  --hit-baby:  #bfd7ed;  /* Baby Blue  */
+  --hit-grotto:#60a3d9;  /* Blue Grotto*/
+  --hit-royal: #0074b7;  /* Royal Blue */
+  --hit-navy:  #003b73;  /* Navy Blue  */
+}
+
+/* Sidebar contenedor */
+.hit-sb{
+  background: linear-gradient(180deg, var(--hit-baby), var(--hit-grotto));
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Lista de navegación del sidebar */
+.hit-sb-list{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;            /* separa los items */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Enlace de navegación (icono grande arriba, texto chico abajo) */
+.hit-sb-link{
+  display: block;
+  text-align: center;
+  padding: 14px 10px;
+  border-radius: 14px;
+  color: var(--hit-navy);
+  background: transparent;
+  transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.hit-sb-link img{
+  width: 50px;          /* ícono grande */
+  height: 50px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+.hit-sb-link span{
+  display: block;
+  font-size: .85rem;    /* texto pequeño */
+  font-weight: 600;
+}
+
+/* Hover */
+.hit-sb-link:hover{
+  background: rgba(255,255,255,0.28);
+  transform: translateY(-2px);
+}
+
+/* Activo */
+.hit-sb-link-active{
+  background: #fff;
+  color: var(--hit-royal);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+/* Pie del sidebar (usuario) */
+.hit-sb-user{
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.65);
+  font-size: .9rem;
+}
+
+/* Botón primario (ej. “Nuevo Ticket”) */
+.hit-btn-primary{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--hit-royal), var(--hit-grotto));
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 3px 12px rgba(0, 95, 160, .25);
+  transition: transform .15s ease, filter .2s ease;
+}
+.hit-btn-primary:hover{ filter: brightness(1.05); transform: translateY(-1px); }
+.hit-btn-primary img{ width: 18px; height: 18px; object-fit: contain; }
+
+/* === HIT: tarjetas, badges y paginación básicos === */
+.hit-card{
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.hit-card:hover{ box-shadow: 0 6px 18px rgba(0,0,0,.07); }
+
+.hit-row{
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.hit-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.hit-badge.success{ background: #e8f7ee; color: #0f6b3d; } /* finalizados */
+.hit-badge.warn{ background: #fff7e6; color: #8a6100; }    /* abiertos/proceso */
+.hit-badge.info{ background: #e8f1ff; color: var(--hit-royal); }
+
+.hit-pager{
+  display: flex; gap: 8px; align-items: center; justify-content: flex-end;
+}
+.hit-pager button{
+  padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+.hit-empty{
+  padding: 20px; border: 1px dashed rgba(0,0,0,.15); border-radius: 16px; text-align: center;
+  color: rgba(0,0,0,.6); background: #fff;
+}
+
+
+/* === HIT: tabs simples === */
+.hit-tabs { display: flex; gap: 8px; border-bottom: 1px solid rgba(0,0,0,.08); margin-top: 18px; }
+.hit-tab {
+  padding: 10px 14px; border-radius: 12px 12px 0 0; background: transparent;
+  color: var(--hit-navy); font-weight: 600;
+}
+.hit-tab:hover { background: rgba(255,255,255,.5); }
+.hit-tab-active { background: #fff; color: var(--hit-royal); box-shadow: 0 -2px 8px rgba(0,0,0,.05); }
+.hit-tabpanel { background:#fff; border-radius: 0 16px 16px 16px; padding: 16px; box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+.hit-kv { display:grid; grid-template-columns: 160px 1fr; gap:10px; }
+.hit-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.prewrap { white-space: pre-wrap; }
+
+
+/* === HIT: comentarios === */
+.hit-comments { display: grid; gap: 12px; }
+.hit-comment {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.05);
+}
+.hit-comment-head {
+  display:flex; align-items:center; justify-content:space-between;
+  font-size: .9rem; margin-bottom: 6px;
+}
+.hit-comment-author { font-weight: 700; color: var(--hit-navy); }
+.hit-comment-time { opacity: .65; font-size: .85rem; }
+.hit-comment-text { white-space: pre-wrap; }
+
+
+
+
+
+

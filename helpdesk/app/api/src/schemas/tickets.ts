@@ -17,3 +17,9 @@ export const ListTicketsQuerySchema = z.object({
 });
 
 export type ListTicketsQuery = z.infer<typeof ListTicketsQuerySchema>;
+
+export const TicketIdParamSchema = z.object({
+  id: z.coerce.number().int().positive(),
+});
+export type TicketIdParam = z.infer<typeof TicketIdParamSchema>;
+

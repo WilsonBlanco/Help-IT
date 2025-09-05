@@ -48,3 +48,5 @@ export async function pingDB() {
     await conn.close();
   }
 }
+
+oracledb.fetchAsString = [oracledb.CLOB];
