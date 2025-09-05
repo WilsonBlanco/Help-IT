@@ -87,7 +87,48 @@
 /* -------------------------------------------------------------------------------------------------- */
 /* ---------------------------------- Estilos para Dashboard ------------------------------- */
 /* -------------------------------------------------------------------------------------------------- */
-/* Estilos generales del contenedor del dashboard */
+/* Este archivo CSS complementa las clases de Bootstrap */
+
+/* Estilos únicos y personalizados que complementan Bootstrap */
+
+/* --- Contenedor Principal --- */
+
+
+
+
+/* Estilos únicos y personalizados que complementan Bootstrap */
+
+/* --- Contenedor Principal --- */
+
+.rounded-box {
+    border-radius: 8px;
+}
+
+.shadow-light {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-medium {
+    font-size: 14px;
+}
+
+.text-gray {
+    color: #666;
+}
+
+.text-lightgray {
+    color: #888;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+/* 📌 Contenedor principal */
 .dashboard-container {
     padding: 24px;
     background-color: #f0f2f5;
@@ -95,7 +136,7 @@
     color: #333;
 }
 
-/* Encabezado del dashboard */
+/* 📌 Header */
 .dashboard-header {
     display: flex;
     justify-content: space-between;
@@ -106,25 +147,14 @@
 .dashboard-header h1 {
     font-size: 28px;
     font-weight: 600;
-    margin: 0;
 }
 
-.dashboard-header p {
-    font-size: 14px;
-    color: #666;
-    margin: 4px 0 0;
-}
-
-.header-time {
-    font-size: 14px;
-    color: #666;
-}
 
 .header-time i {
     margin-right: 8px;
 }
 
-/* Sección de tarjetas de resumen */
+/* 📌 Summary cards */
 .summary-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -134,33 +164,18 @@
 
 .card {
     background-color: #fff;
-    border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-left: 4px solid;
 }
 
-.card-title {
-    font-size: 14px;
-    color: #888;
-    margin: 0;
-}
-
 .card-value {
     font-size: 32px;
     font-weight: bold;
-    margin: 8px 0 0;
+    margin-top: 8px;
 }
-
-/* Colores de las tarjetas */
-.total-tickets { border-color: #556BFF; }
-.open-tickets { border-color: #FFC107; }
-.in-process-tickets { border-color: #FF9800; }
-.completed-tickets { border-color: #4CAF50; }
-
 .card-icon {
     font-size: 24px;
     color: #fff;
@@ -169,41 +184,30 @@
     border-radius: 50%;
 }
 
-.total-tickets .card-icon { background-color: #556BFF; }
-.open-tickets .card-icon { background-color: #FFC107; }
-.in-process-tickets .card-icon { background-color: #FF9800; }
-.completed-tickets .card-icon { background-color: #4CAF50; }
-
-/* Grid principal para tickets y notificaciones */
+/* 📌 Layout */
 .main-content-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 24px;
 }
 
-.tickets-recentes, .notificaciones-panel {
+/* 📌 Tickets & Notificaciones panel */
+.tickets-recentes,
+.notificaciones-panel {
     background-color: #fff;
-    border-radius: 8px;
     padding: 24px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.tickets-recentes h3, .notificaciones-panel h3 {
+.tickets-recentes h3,
+.notificaciones-panel h3 {
     font-size: 20px;
     font-weight: 600;
-    margin: 0 0 4px;
+    margin-bottom: 4px;
 }
 
-.subtitle {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 20px;
-}
-
-/* Estilos de los tickets */
+/* 📌 Ticket card */
 .ticket-card {
     border: 1px solid #eee;
-    border-radius: 8px;
     padding: 16px;
     margin-bottom: 16px;
 }
@@ -229,12 +233,6 @@
     border-radius: 4px;
 }
 
-.ticket-description {
-    font-size: 14px;
-    color: #555;
-    margin: 0 0 12px;
-}
-
 .ticket-tags span {
     font-size: 12px;
     padding: 4px 8px;
@@ -247,22 +245,14 @@
 .status-tag.abierto { background-color: #ffebee; color: #d32f2f; }
 .type-tag.software { background-color: #e3f2fd; color: #1565c0; }
 
-.ticket-info p {
-    font-size: 13px;
-    color: #666;
-    margin: 8px 0 0;
-}
 
 .ticket-info i {
     margin-right: 8px;
     color: #aaa;
 }
 
-/* Estilos de notificaciones */
-.notificaciones-panel {
-    border-radius: 8px;
-}
-
+/* 📌 Notificaciones */
+/* 📌 Notificaciones */
 .notificaciones-header {
     display: flex;
     justify-content: space-between;
@@ -279,13 +269,16 @@
     border-radius: 12px;
 }
 
+/* 🔹 Caja de notificación */
 .notificacion-item {
     display: flex;
     align-items: flex-start;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 12px 16px;
     margin-bottom: 12px;
-    border: 1px solid #eee;
+    border-radius: 8px;
+    border: 1px solid #ccc;      /* borde más visible */
+    background-color: #f9f9f9;   /* fondo claro */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .notificacion-item i {
@@ -293,20 +286,73 @@
     margin-right: 12px;
 }
 
-.notificacion-item.error { border-color: #ffcdd2; background-color: #fff; color: #d32f2f; }
-.notificacion-item.success { border-color: #e8f5e9; background-color: #fff; color: #43a047; }
-.notificacion-item.info { border-color: #bbdefb; background-color: #fff; color: #1976d2; }
+/* 🔹 Variantes de estado */
+.notificacion-item.error {
+    border-left: 4px solid #d32f2f;
+    background-color: #fff5f5;
+    color: #d32f2f;
+}
 
+.notificacion-item.success {
+    border-left: 4px solid #43a047;
+    background-color: #f6fff9;
+    color: #2e7d32;
+}
+
+.notificacion-item.info {
+    border-left: 4px solid #1976d2;
+    background-color: #f5f9ff;
+    color: #1565c0;
+}
+
+.notificacion-item.warning {
+    border-left: 4px solid #ffa000;
+    background-color: #fff8e1;
+    color: #e65100;
+}
+
+/* 🔹 Texto dentro de notificación */
 .notificacion-item p {
-    margin: 0;
     font-size: 14px;
     color: #333;
+    margin: 0;
 }
 
-.notificacion-item small {
-    font-size: 12px;
-    color: #888;
+
+
+.card,
+.ticket-card,
+.notificacion-item {
+    border-radius: 8px; /* 🔹 Se mantiene el borde redondeado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+
+
+/* 🎨 Efecto hover */
+.card:hover,
+.ticket-card:hover,
+.notificacion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+
+/* Esto aplica a todas las tarjetas en la sección de resumen */
+.summary-cards .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el cursor (hover) */
+.summary-cards .card:hover {
+    transform: translateY(-5px); /* Mueve la tarjeta ligeramente hacia arriba */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra para dar una sensación de "elevación" */
+    cursor: pointer; /* Cambia el cursor a una mano, como si fuera un botón */
+}
+
 
 
 
@@ -314,62 +360,107 @@
 /* -------------------------------------------------------------------------------------------------- */
 /* ---------------------------------- Estilos para Ticket ------------------------------- */
 /* -------------------------------------------------------------------------------------------------- */
-.tickets-module-container {
+.tickets-module {
     padding: 24px;
-    font-family: Arial, sans-serif;
     background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
 }
 
-.tickets-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.tickets-header h2 {
+.tickets-header h1 {
     font-size: 28px;
     font-weight: 600;
     margin: 0;
 }
 
+.tickets-header p {
+    font-size: 14px;
+    color: #666;
+    margin: 4px 0 24px 0;
+}
+
+.search-and-filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    position: relative;
+    width: 60%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.date-filter {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.date-filter i {
+    margin-right: 8px;
+}
+
 .filter-buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .filter-btn {
-    padding: 10px 18px;
-    border: none;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
     cursor: pointer;
     font-weight: bold;
-    color: #666;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
 }
 
 .filter-btn.active {
-    background-color: #007bff;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    border-color: #007bff;
+    color: #007bff;
+    background-color: #e6f2ff;
 }
 
-.filter-btn:hover {
-    background-color: #f4f4f4;
+.ticket-list-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
 }
 
-/* Estilos de la lista de tickets */
-.tickets-list {
-    display: grid;
-    gap: 24px;
+.ticket-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.ticket-item-card {
+.ticket-item {
     background-color: #fff;
-    border-radius: 8px;
     padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
 }
 
 .ticket-item-header {
@@ -379,52 +470,67 @@
     margin-bottom: 10px;
 }
 
-.ticket-item-header h3 {
+.ticket-title {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-.ticket-tags {
+.ticket-item-tags {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 
-.status-tag {
+.status-tag, .type-tag, .media-tag {
     font-size: 12px;
+    font-weight: bold;
     padding: 4px 8px;
     border-radius: 4px;
-    font-weight: bold;
     text-transform: capitalize;
 }
 
-/* Colores de las etiquetas de estado */
-.status-tag.abierto { background-color: #ffebee; color: #d32f2f; }
-.status-tag.en-proceso { background-color: #fffde7; color: #ff6f00; }
+.media-tag { background-color: #ffeb3b; color: #333; }
 .status-tag.terminado { background-color: #e8f5e9; color: #43a047; }
+.status-tag.abierto { background-color: #ffebee; color: #d32f2f; }
+.status-tag.en-proceso { background-color: #fff3e0; color: #ff9800; }
 .status-tag.cerrado { background-color: #e0e0e0; color: #757575; }
-
-/* Colores de las etiquetas de categoría */
 .type-tag.software { background-color: #e3f2fd; color: #1565c0; }
-.type-tag.hardware { background-color: #f3e5f5; color: #6a1b9a; }
+.type-tag.hardware { background-color: #f3e5f5; color: #9c27b0; }
 
 .ticket-description {
     font-size: 14px;
     color: #555;
-    margin: 0 0 16px;
+    margin: 0 0 15px 0;
 }
 
-.ticket-meta p {
+.ticket-info p {
     font-size: 13px;
     color: #666;
-    margin: 0 0 4px;
+    margin: 0 0 5px 0;
 }
 
-.ticket-meta i {
+.ticket-info i {
     margin-right: 8px;
     color: #aaa;
 }
 
-.no-tickets-message {
+.view-detail-btn {
+    background-color: #f0f2f5;
+    color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.view-detail-btn:hover {
+    background-color: #e6e9ee;
+}
+
+.no-tickets {
     text-align: center;
     color: #888;
     margin-top: 50px;
@@ -435,7 +541,7 @@
 
 
 /* -------------------------------------------------------------------------------------------------- */
-/* ---------------------------------- Estilos para Ticket ------------------------------- */
+/* ---------------------------------- Estilos para Detalle Ticket ------------------------------- */
 /* -------------------------------------------------------------------------------------------------- */
 .detalle-ticket-container {
     padding: 24px;
@@ -444,7 +550,6 @@
     color: #333;
 }
 
-/* Encabezado */
 .ticket-header-section {
     background-color: #fff;
     padding: 20px;
@@ -486,7 +591,6 @@
     margin-left: 8px;
 }
 
-/* Colores de tags */
 .status-tag.en-proceso { background-color: #ffc107; color: #fff; }
 .priority-tag.alta { background-color: #dc3545; color: #fff; }
 .category-tag.hardware { background-color: #6c757d; color: #fff; }
@@ -498,12 +602,14 @@
     color: #666;
 }
 
-/* Layout principal de dos paneles */
 .ticket-main-content-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 24px;
+    grid-template-columns: 2.2fr 1fr; /* antes 2fr 1fr → ahora el panel izq ocupa más */
+    gap: 27px;
+    max-width: 1500px; /* controla el ancho máximo */
+    margin: auto;
 }
+
 
 .ticket-details-panel, .ticket-actions-panel {
     padding: 24px;
@@ -530,7 +636,6 @@
     margin-right: 8px;
 }
 
-/* Descripción del problema */
 .ticket-description-box h3 {
     font-size: 18px;
     margin: 0 0 10px;
@@ -542,7 +647,6 @@
     line-height: 1.6;
 }
 
-/* Pestañas de historial */
 .ticket-tabs {
     margin-top: 24px;
 }
@@ -602,7 +706,6 @@
     margin: 5px 0 0;
 }
 
-/* Panel de acciones */
 .card-actions, .card-add-comment, .card-contact-info {
     padding: 20px;
     border: 1px solid #eee;
@@ -676,4 +779,13 @@ textarea {
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 10px;
+}
+
+.detalle-ticket-container i,
+.ticket-details-summary p i,
+.card-actions i,
+.card-add-comment i,
+.card-contact-info i {
+    margin-right: 8px; /* espacio a la derecha */
+    vertical-align: middle; /* alinea bien con el texto */
 }

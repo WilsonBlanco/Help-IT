@@ -1,56 +1,73 @@
 import React, { useState } from 'react';
-import './modulo.css'; 
+import './modulo.css';
 
 const mockTickets = [
     {
         id: 1,
         title: 'Configuración de correo electrónico',
+        description: 'Nuevo empleado necesita configuración de correo corporativo.',
         status: 'terminado',
         category: 'software',
         assignedTo: 'Ana Silva',
         date: '20/1/2025',
-        description: 'Nuevo empleado necesita configuración de correo corporativo.'
+        time: '11:30'
     },
     {
         id: 2,
         title: 'Instalación de software especializado',
+        description: 'Instalar AutoCAD en 5 equipos del departamento de diseño',
         status: 'abierto',
         category: 'software',
         assignedTo: 'Roberto Díaz',
         date: '20/1/2025',
-        description: 'Instalar AutoCAD en 5 equipos del departamento de diseño'
+        time: '11:00'
     },
     {
         id: 3,
         title: 'Fallo en la red de la oficina',
+        description: 'Intermitencia en la conexión a internet en el departamento de contabilidad.',
         status: 'en-proceso',
         category: 'hardware',
         assignedTo: 'Luis Mendoza',
         date: '19/1/2025',
-        description: 'Intermitencia en la conexión a internet en el departamento de contabilidad.'
+        time: '10:00'
     },
     {
         id: 4,
         title: 'Reparación de impresora',
+        description: 'La impresora no enciende y no da señal de vida.',
         status: 'cerrado',
         category: 'hardware',
-        assignedTo: 'Luis Mendoza',
+        assignedTo: 'Juan Perez',
         date: '18/1/2025',
-        description: 'La impresora no enciende y no da señal de vida.'
+        time: '15:00'
     },
 ];
 
 const TicketsModule = () => {
-    // Estado para guardar el filtro seleccionado: 'todos', 'abierto', 'en-proceso', etc.
-    const [filtroActual, setFiltroActual] = useState('todos');
+    const [selectedFilter, setSelectedFilter] = useState('Todos');
 
-    // Lógica para filtrar los tickets según el estado
-    const ticketsFiltrados = mockTickets.filter(ticket => {
-        if (filtroActual === 'todos') {
-            return true; // Si el filtro es "todos", muestra todos los tickets
+    const getTicketsByStatus = (status) => {
+        if (status === 'Todos') {
+            return mockTickets;
         }
-        return ticket.status === filtroActual;
-    });
+        return mockTickets.filter(ticket => {
+            if (status === 'Terminados') return ticket.status === 'terminado';
+            if (status === 'Cerrados') return ticket.status === 'cerrado';
+            if (status === 'Abiertos') return ticket.status === 'abierto';
+            if (status === 'En Proceso') return ticket.status === 'en-proceso';
+            return false;
+        });
+    };
+
+    const getFilterCount = (filter) => {
+        if (filter === 'Todos') {
+            return mockTickets.length;
+        }
+        return getTicketsByStatus(filter).length;
+    };
+
+    const ticketsToDisplay = getTicketsByStatus(selectedFilter);
 
     const getTagClass = (tagType) => {
         switch (tagType) {
@@ -65,60 +82,67 @@ const TicketsModule = () => {
     };
 
     return (
-        <div className="tickets-module-container">
+        <div className="tickets-module">
             <header className="tickets-header">
-                <h2>Lista de Tickets</h2>
-                <div className="filter-buttons">
-                    <button 
-                        className={`filter-btn ${filtroActual === 'todos' ? 'active' : ''}`} 
-                        onClick={() => setFiltroActual('todos')}>
-                        Todos ({mockTickets.length})
-                    </button>
-                    <button 
-                        className={`filter-btn ${filtroActual === 'abierto' ? 'active' : ''}`} 
-                        onClick={() => setFiltroActual('abierto')}>
-                        Abiertos ({mockTickets.filter(t => t.status === 'abierto').length})
-                    </button>
-                    <button 
-                        className={`filter-btn ${filtroActual === 'en-proceso' ? 'active' : ''}`} 
-                        onClick={() => setFiltroActual('en-proceso')}>
-                        En Proceso ({mockTickets.filter(t => t.status === 'en-proceso').length})
-                    </button>
-                    <button 
-                        className={`filter-btn ${filtroActual === 'terminado' ? 'active' : ''}`} 
-                        onClick={() => setFiltroActual('terminado')}>
-                        Terminados ({mockTickets.filter(t => t.status === 'terminado').length})
-                    </button>
-                    <button 
-                        className={`filter-btn ${filtroActual === 'cerrado' ? 'active' : ''}`} 
-                        onClick={() => setFiltroActual('cerrado')}>
-                        Cerrados ({mockTickets.filter(t => t.status === 'cerrado').length})
-                    </button>
+                <div className="header-info">
+                    <h1>Historial de Tickets</h1>
+                    <p>Gestiona y revisa todos los tickets del sistema organizados por estado</p>
                 </div>
             </header>
 
-            <div className="tickets-list">
-                {ticketsFiltrados.length > 0 ? (
-                    ticketsFiltrados.map(ticket => (
-                        <div key={ticket.id} className="ticket-item-card">
+            <div className="search-and-filter-section">
+                <div className="search-bar">
+                    <i className="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Buscar por título, usuario o categoría..." />
+                </div>
+                <div className="date-filter">
+                    <i className="fas fa-calendar-alt"></i>
+                    <span>Fecha de actualiza...</span>
+                    <i className="fas fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div className="filter-buttons">
+                {['Todos', 'Abiertos', 'En Proceso', 'Terminados', 'Cerrados'].map(filter => (
+                    <button 
+                        key={filter} 
+                        className={`filter-btn ${selectedFilter === filter ? 'active' : ''}`}
+                        onClick={() => setSelectedFilter(filter)}
+                    >
+                        {filter} ({getFilterCount(filter)})
+                    </button>
+                ))}
+            </div>
+
+            <div className="ticket-list-info">
+                <span>Mostrando {ticketsToDisplay.length} ticket(s)</span>
+                <span className="sort-by">Ordenado por fecha</span>
+            </div>
+
+            <div className="ticket-list-container">
+                {ticketsToDisplay.length > 0 ? (
+                    ticketsToDisplay.map(ticket => (
+                        <div key={ticket.id} className="ticket-item">
                             <div className="ticket-item-header">
-                                <h3>{ticket.title}</h3>
-                                <div className="ticket-tags">
+                                <h4 className="ticket-title">{ticket.title}</h4>
+                                <div className="ticket-item-tags">
+                                    <span className="media-tag">media</span>
                                     <span className={getTagClass(ticket.status)}>{ticket.status}</span>
                                     <span className={getTagClass(ticket.category)}>{ticket.category}</span>
                                 </div>
                             </div>
                             <p className="ticket-description">{ticket.description}</p>
-                            <div className="ticket-meta">
+                            <div className="ticket-info">
                                 <p><i className="fas fa-user-circle"></i> Asignado a: {ticket.assignedTo}</p>
-                                <p><i className="fas fa-calendar-alt"></i> Fecha: {ticket.date}</p>
+                                <p><i className="fas fa-calendar-alt"></i> Fecha: {ticket.date}, {ticket.time}</p>
                             </div>
+                            <button className="view-detail-btn">
+                                <i className="fas fa-eye"></i> Ver Detalle
+                            </button>
                         </div>
                     ))
                 ) : (
-                    <div className="no-tickets-message">
-                        <p>No hay tickets en este estado.</p>
-                    </div>
+                    <p className="no-tickets">No hay tickets para mostrar con este filtro.</p>
                 )}
             </div>
         </div>

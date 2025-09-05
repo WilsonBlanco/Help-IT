@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import './App.css'; 
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
 
-
-import DashboardPage from './vistas/PanelTecnico/Dashboard';
-import TicketsModule from './vistas/PanelTecnico/Ticket';
-import DetalleTicketPage from './vistas/PanelTecnico/DetalleTicket';
-import ReportsModule from './vistas/PanelTecnico/Reportes/ReporteTecnico';
+import DashboardPage from './legacyui/PanelTecnico/Dashboard';
+import TicketsModule from './legacyui/PanelTecnico/Ticket';
+import DetalleTicketPage from './legacyui/PanelTecnico/DetalleTicket';
+import Reporteria from './legacyui/PanelTecnico/Reportes/Reporteria';
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: 'fas fa-chart-line' },
   { id: 'tickets', label: 'Historial de Tickets', icon: 'fas fa-ticket-alt' },
-  { id: 'informes', label: 'Informes', icon: 'fas fa-chart-pie' },
   { id: 'detalle', label: 'Detalle de Ticket', icon: 'fas fa-clipboard-list' },
+  { id: 'informes', label: 'Informes', icon: 'fas fa-chart-pie' },
 ];
 
 function App() {
@@ -23,10 +23,10 @@ function App() {
         return <DashboardPage />;
       case 'tickets':
         return <TicketsModule />;
-      case 'informes':
-        return <ReportsModule onBack={() => setActiveModule('dashboard')} />;
       case 'detalle':
         return <DetalleTicketPage />;
+      case 'informes':
+        return <Reporteria />;
       default:
         return <div>Seleccione un módulo</div>;
     }
