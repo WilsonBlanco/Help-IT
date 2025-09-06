@@ -15,6 +15,7 @@ import TicketDetailPage from './pages/TicketDetail'     // ← nuevo
 
 
 
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -38,6 +39,9 @@ export default function App() {
             <Route element={<RequireRole roles={['TECH', 'ADMIN']} />}>
             <Route path="/dashboard" element={<DashboardLegacy />} />
             <Route path="/reports" element={<ReportsPage />} />
+            
+
+
             </Route>
 
             {/* Solo ADMIN */}

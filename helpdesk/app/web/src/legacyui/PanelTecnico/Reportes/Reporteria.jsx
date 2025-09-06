@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css'; // Importa los estilos de Bootstrap Icons
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import ReporteTicketsAsignados from './TicketsAsignados';
 import ReporteTicketsResueltos from './TicketsResueltos';
 import ReporteTiempoResolucion from './TiempoResolucion';

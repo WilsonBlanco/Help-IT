@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// Asegúrate de tener esta importación para que los íconos funcionen
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const mockTicketsAsignados = [
     { id: 'T-005', title: 'Impresora sin conexión en Piso 3', status: 'en-proceso', user: 'Juan Pérez', technicianId: 'tech-001' },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const mockTickets = [
     { id: 'T-005', title: 'Impresora sin conexión', status: 'en-proceso', user: 'Juan Pérez' },

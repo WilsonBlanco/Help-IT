@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const mockData = [
     { id: 'T-001', technicianId: 'tech-001', user: 'Carlos Méndez', resolutionTimeMinutes: 120 },

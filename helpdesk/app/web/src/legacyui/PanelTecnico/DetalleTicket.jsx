@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './modulo.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const mockTicket = {
     id: 'T-002',

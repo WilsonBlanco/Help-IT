@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// Asegúrate de tener esta importación para que los íconos funcionen
-import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const mockTicketsResueltos = [
     { id: 'T-001', title: 'Configuración de software', resolutionDate: '2025-08-05' },

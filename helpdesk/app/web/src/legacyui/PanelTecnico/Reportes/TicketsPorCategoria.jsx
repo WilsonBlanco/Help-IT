@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function ReporteTicketsPorCategoria() {
     const [timeframe, setTimeframe] = useState('mensual');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const mockTicketsPendientes = [
     { id: 'T-020', title: 'Problema de acceso a email', priority: 'alta', user: 'Laura Castro' },
